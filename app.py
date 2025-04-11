@@ -31,6 +31,88 @@ inspiration_texts = [
 if "user_input" not in st.session_state:
     st.session_state.user_input = ""
 
+def sidebar_profile():
+    # Sidebar info with custom profile section
+    st.sidebar.title("ℹ️ About")
+    st.sidebar.markdown("---")
+    st.sidebar.markdown(
+        """
+        <style>
+            .custom-sidebar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                width: 650px;
+                padding: 10px;
+            }
+            .profile-container {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                width: 100%;
+            }
+            .profile-image {
+                width: 200px;
+                height: auto;
+                border-radius: 15px;
+                box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+                margin-right: 15px;
+            }
+            .profile-details {
+                font-size: 14px;
+                width: 100%;
+            }
+            .profile-details h3 {
+                margin: 0 0 10px;
+                font-size: 18px;
+                color: #333;
+            }
+            .profile-details p {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+            }
+            .profile-details a {
+                text-decoration: none;
+                color: #1a73e8;
+            }
+            .profile-details a:hover {
+                text-decoration: underline;
+            }
+            .icon-img {
+                width: 18px;
+                height: 18px;
+                margin-right: 6px;
+            }
+        </style>
+
+        <div class="custom-sidebar">
+            <div class="profile-container">
+                <img class="profile-image" src="https://res.cloudinary.com/dwhfxqolu/image/upload/v1744014185/pnhnaejyt3udwalrmnhz.jpg" alt="Profile Image">
+                <div class="profile-details">
+                    <h3>👨‍💻 Developed by:<br> Tahir Abbas Shaikh</h3>
+                    <p>
+                        <img class="icon-img" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Gmail">
+                        <strong>Email:</strong> <a href="mailto:tahirabbasshaikh555@gmail.com">tahirabbasshaikh555@gmail.com</a>
+                    </p>
+                    <p>📍 <strong>Location:</strong> Sukkur, Sindh, Pakistan</p>
+                    <p>
+                        <img class="icon-img" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub">
+                        <strong>GitHub:</strong> <a href="https://github.com/Tahir-Abbas-555" target="_blank">Tahir-Abbas-555</a>
+                    </p>
+                    <p>
+                        <img class="icon-img" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="HuggingFace">
+                        <strong>HuggingFace:</strong> <a href="https://huggingface.co/Tahir5" target="_blank">Tahir5</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 def main():
     st.title(f"{app_title} 🪄")
     st.subheader(app_subtitle)
@@ -104,22 +186,7 @@ def main():
                         "This app uses the `distilbert-base-uncased` model from the `transformers` library to predict the masked word in your sentence. "
                         "It's a demonstration of masked language modeling."
                     )
-    st.markdown("---")
-    st.markdown("""
-        <div style="display: flex; align-items: center;">
-            <div style="flex: 0 0 auto; margin-right: 20px;">
-                <img src="https://media.licdn.com/dms/image/v2/D4E35AQGaNpMhYXgzJg/profile-framedphoto-shrink_200_200/B4EZUhqRjOH0AY-/0/1740026485311?e=1743714000&v=beta&t=6M5gUJ9LzEzC4_sDlzDA7G55BbzkeCFJXo5-f7BZXls" 
-                    alt="Profile Image" width="200" style="border-radius: 10px;">
-            </div>
-            <div>
-                <h3>👨‍💻 <b>Developed by:</b> Tahir Abbas Shaikh</h3>
-                <p>📧 <b>Email:</b> <a href="mailto:tahirabbasshaikh555@gmail.com">tahirabbasshaikh555@gmail.com</a></p>
-                <p>📍 <b>Location:</b> Sukkur, Sindh, Pakistan</p>
-                <p>💼 <b>LinkedIn/GitHub:</b> <a href="https://github.com/Tahir-Abbas-555" target="_blank">Tahir-Abbas-555</a></p>
-                <p>📁 <b>LinkedIn/HuggingFace:</b> <a href="https://huggingface.co/Tahir5" target="_blank">Tahir5</a></p>
-            </div>
-        </div>
-    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
+    sidebar_profile()
     main()
