@@ -7,7 +7,7 @@ st.set_page_config(page_title="The Great Text Alchemist", page_icon="🧙‍♂�
 
 @st.cache_resource
 def load_unmasker():
-    return pipeline('fill-mask', model='distilbert-base-uncased')
+    return pipeline('fill-mask', model='google-bert/bert-large-cased-whole-word-masking')
 
 unmasker = load_unmasker()
 
